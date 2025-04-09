@@ -32,9 +32,11 @@ public class HACKER extends Hero {
                     Hero hero1 = alive.get(0);
                     Hero hero2 = alive.get(1);
                     if (stealHealth/2 == 0) {
-                    }else {
                         hero1.setHealth(hero1.getHealth() + stealHealth / 2);
                         hero1.setHealth(hero2.getHealth() + stealHealth / 2);
+                    }else {
+                        hero1.setHealth(hero1.getHealth() + stealHealth / 2);
+                        hero1.setHealth(hero2.getHealth() + stealHealth / 2 +1);
                     }
                 } else if (alive.size() == 1) {
                     Hero hero = alive.getFirst();
