@@ -8,10 +8,12 @@ public class HACKER extends Hero {
         int stealHealth = RPG_Game.random.nextInt(5, 11);
         int a = RPG_Game.random.nextInt(heroes.length);
         int b = RPG_Game.random.nextInt(heroes.length);
-        if (RPG_Game.getRoundNumber() % 2 == 0) {
+        if (RPG_Game.getRoundNumber() != 1 && RPG_Game.getRoundNumber() % 2 == 0) {
             if (boss.getHealth() >= 5) {
                 boss.setHealth(boss.getHealth() - stealHealth);
                 for (int i = 0; i < heroes.length; i++) {
+                    System.out.println("HEALTH WAS STEAL : " + stealHealth + " HEALTH");
+
                     if (heroes[i].getHealth() > 0 && this != heroes[i]) {
                         if (heroes[a].getHealth() == heroes[i].getHealth()
                                 && heroes[b].getHealth() <= 0) {
@@ -28,7 +30,6 @@ public class HACKER extends Hero {
                                 heroes[b].setHealth(heroes[b].getHealth() + (stealHealth / 2 + 1));
                             }
                         }
-                        System.out.println("HEALTH WAS STEAL :" + stealHealth + "HEALTH");
                     }
                 }
             }
