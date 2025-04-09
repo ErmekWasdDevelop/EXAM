@@ -31,9 +31,11 @@ public class HACKER extends Hero {
                     Collections.shuffle(alive);
                     Hero hero1 = alive.get(0);
                     Hero hero2 = alive.get(1);
-
-                    hero1.setHealth(hero1.getHealth() + stealHealth / 2);
-                    hero1.setHealth(hero2.getHealth() + stealHealth / 2);
+                    if (stealHealth/2 == 0) {
+                    }else {
+                        hero1.setHealth(hero1.getHealth() + stealHealth / 2);
+                        hero1.setHealth(hero2.getHealth() + stealHealth / 2);
+                    }
                 } else if (alive.size() == 1) {
                     Hero hero = alive.getFirst();
                     hero.setHealth(hero.getHealth() + stealHealth);
