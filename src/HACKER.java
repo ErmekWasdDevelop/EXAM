@@ -11,11 +11,13 @@ public class HACKER extends Hero {
     @Override
     public void applySuperPower(Boss boss, Hero[] heroes) {
         int stealHealth = RPG_Game.random.nextInt(5, 11);
+        /*
         int a = RPG_Game.random.nextInt(heroes.length);
         int b;
         do {
             b = RPG_Game.random.nextInt(heroes.length);
         } while (a != b);
+        */
         if (RPG_Game.getRoundNumber() != 1 && RPG_Game.getRoundNumber() % 2 == 0) {
             if (boss.getHealth() >= 5) {
                 boss.setHealth(boss.getHealth() - stealHealth);
