@@ -8,7 +8,7 @@ public class HACKER extends Hero {
         int stealHealth = RPG_Game.random.nextInt(5, 11);
         int a = RPG_Game.random.nextInt(heroes.length);
         int b = RPG_Game.random.nextInt(heroes.length);
-        if (RPG_Game.getRoundNumber() != 1 && RPG_Game.getRoundNumber() % 2 == 0) {
+        if (RPG_Game.getRoundNumber() % 2 == 0) {
             if (boss.getHealth() >= 5) {
                 boss.setHealth(boss.getHealth() - stealHealth);
                 for (int i = 0; i < heroes.length; i++) {
