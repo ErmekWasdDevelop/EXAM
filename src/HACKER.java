@@ -1,7 +1,12 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class HACKER extends Hero {
     public HACKER(String name, int health, int damage) {
         super(name, health, damage, SuperAbility.HEALTH_STEAL);
     }
+
 
     @Override
     public void applySuperPower(Boss boss, Hero[] heroes) {
@@ -14,6 +19,24 @@ public class HACKER extends Hero {
         if (RPG_Game.getRoundNumber() != 1 && RPG_Game.getRoundNumber() % 2 == 0) {
             if (boss.getHealth() >= 5) {
                 boss.setHealth(boss.getHealth() - stealHealth);
+                List<Hero> alive = new ArrayList<>();
+                for (Hero hero : heroes) {
+                    if (hero.getHealth() > 0 && hero != this) {
+                        alive.add(hero);
+                    }
+                }
+                if (alive.size() >= 2) {
+                    Collections.shuffle(alive);
+                    Hero hero1 = alive.get(0);
+                    Hero hero2 = alive.get(1);
+
+                    hero1.setHealth(hero1.getHealth() + stealHealth / 2);
+                    hero1.setHealth(hero2.getHealth() + stealHealth / 2);
+                } else if (alive.size() == 1) {
+                    Hero hero = alive.getFirst();
+                    hero.setHealth(hero.getHealth() + stealHealth);
+                }
+                /*
                 for (int i = 0; i < heroes.length; i++) {
                     if (heroes[i].getHealth() > 0 && this != heroes[i]) {
                         if (heroes[a].getHealth() > 0 && heroes[b].getHealth() > 0) {
@@ -33,10 +56,11 @@ public class HACKER extends Hero {
                         }
                     }
                 }
+                */
             }
         }
-
         System.out.println("HEALTH WAS STEAL :" + stealHealth + "HEALTH");
     }
 }
+
 
