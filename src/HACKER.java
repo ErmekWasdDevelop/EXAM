@@ -13,9 +13,11 @@ public class HACKER extends Hero {
                 boss.setHealth(boss.getHealth() - stealHealth);
                 for (int i = 0; i < heroes.length; i++) {
                     if (heroes[i].getHealth() > 0 && this != heroes[i]) {
-                        if (heroes[a].getHealth() > 0 && heroes[b].getHealth() < 0) {
+                        if (heroes[a].getHealth() == heroes[i].getHealth()
+                        && heroes[b].getHealth()<=0) {
                             heroes[a].setHealth(heroes[b].getHealth() + stealHealth);
-                        } else if (heroes[a].getHealth() < 0 && heroes[b].getHealth() > 0) {
+                        } else if (heroes[b].getHealth() == heroes[i].getHealth()
+                        && heroes[a].getHealth()<=0) {
                             heroes[b].setHealth(heroes[b].getHealth() + stealHealth);
                         } else {
                             if (stealHealth % 2 == 0) {
