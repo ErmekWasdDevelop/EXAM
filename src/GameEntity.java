@@ -24,11 +24,6 @@ public abstract class GameEntity {
             this.health = health;
         }
     }
-    public boolean alive(){
-        if (health>0){
-            return true;}
-        return false;
-    }
 
 
     public int getDamage() {
